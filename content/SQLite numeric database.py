@@ -59,6 +59,7 @@ psII_df
 s10['date'] = pd.to_datetime(s10['date'])
 s10 = s10[s10['treatment']!='border']
 # Drop any na files from plant_name
+s10.query('plant_name != 'NA'' and 'not plant_name.contains('BORDER')', inplace = True)
 s10['Plot'] = s10['plot'].str.replace('_', ' ')
 del s10['plot']
 s10 = s10.set_index(['Plot', 'date'])
